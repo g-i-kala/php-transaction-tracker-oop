@@ -1,34 +1,81 @@
-#### The exercise for the PHP course "Learn PHP The Right Way" lesson 2.33.
+# Transaction File Importer
+
+**Status: In Development**
+
+Welcome to the **Transaction File Importer** project, which is currently in development. This
+application aims to demonstrate my PHP OOP and MVC skills by allowing users to upload CSV files
+containing financial transactions, store them in a database, and display them in a user-friendly
+format.
+
+## Overview
+
+This application is being developed to allow users to upload CSV files containing financial
+transactions. The transactions will be stored in a database and displayed on a webpage with
+color-coded entries for easy identification of income and expenses.
+
+## Features
+
+- [ ] File Upload: Users can upload CSV files containing transaction data.
+- [ ] Database Storage: Transactions are stored in a MySQL database for persistent storage.
+- [ ] MVC Architecture: The project is structured using the Model-View-Controller pattern.
+- [ ] OOP Principles: Demonstrates encapsulation, inheritance, and polymorphism.
+- [ ] Transaction Display: Transactions are displayed with color-coded income and expenses.
+- [ ] Date Formatting: Transaction dates are formatted for readability (e.g., "Jan 4, 2021").
+- [ ] User Authentication: Implement user login and registration.
+- [ ] Export Transactions: Allow users to export transactions to a CSV file.
+- [ ] Multiple File Uploads: Supports uploading multiple CSV files simultaneously.
+
+## Technical Details
+
+- **PHP 8**: Utilizes the latest features and improvements in PHP 8.
+- **MySQL**: Stores transaction data in a relational database.
+- **Docker Support**: Easily set up and run the application using Docker.
+- **Environment Configuration**: Utilizes a `.env` file for easy configuration of database
+  connections and other environment-specific settings.
+
+## Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/g-i-kala/php-transaction-tracker-oop.git
+   ```
+2. **Set Up Environment**:
+   - Copy `.env.example` to `.env` and fill in the necessary details.
+3. **Run the Application**:
+   - Using Docker:
+     ```bash
+     cd docker
+     docker-compose up -d
+     ```
+   - Using XAMPP or similar: Ensure Apache, PHP, and MySQL are running.
+4. **Access the Application**:
+   - Visit `http://localhost:8000` in your web browser.
+
+## Learning Foundation
+
+This project is based on the boilerplate from
+[Gio Ggelashvili's PHP course](https://github.com/ggelashvili/learnphptherightway-project), which I
+consider one of the best, if not the best, out there. The course provided an excellent foundation in
+modern PHP practices and guided me through building this application.
+
+## Why This Project is Impressive
+
+- **Demonstrates Modern PHP Practices**: Utilizes PHP 8 features, OOP, and MVC architecture.
+- **Full-Stack Development**: Involves both backend (PHP, MySQL) and frontend (HTML, minimal CSS)
+  skills.
+- **Real-World Application**: Simulates a practical scenario of handling financial data, relevant to
+  many industries.
+- **Extensible and Maintainable**: The use of OOP and MVC makes the project easy to extend and
+  maintain.
+
+## Conclusion
+
+This project is a comprehensive showcase of my ability to build a full-stack application using PHP.
+It reflects my understanding of modern development practices and my ability to deliver functional,
+maintainable, and scalable solutions. Thank you for considering my work, and I look forward to
+discussing how I can contribute to your team.
 
 ---
-#### Course Playlist
-https://www.youtube.com/watch?v=sVbEyFZKgqk&list=PLr3d3QYzkw2xabQRUpcZ_IBk9W50M9pe-
 
----
-#### Summary
-At the end of the section 1 of the course we did a mini project & exercise where we built a transaction file importer. We did it procedural way & also read the files from directory instead of letting user upload them. This exercise is for you to implement the same thing but use OOP as well as database to store the imported transactions & then display them on the screen like this:
-![Sample Output](result.png)
-
-I have provided you with the skeleton of code that you can work with, it is what we already covered in the second section of the course (in the last few lessons). You can refer to [this video](https://youtu.be/iCKzIIE4w5E) to understand the structure of the code. Note that you can write the whole thing on your own & don't use this structure at all, the goal is to simply accept a file upload of transactions, save them in transactions table & color code expense/income when displaying the transactions table. You can look at the code that I wrote & explained in [this video](https://youtu.be/MOsolLaVnsI) & convert it into OOP if you wish.
-
----
-#### Instructions
-1. Clone this repository to your local or download it.
-2. If you are using docker you can `cd` into the docker directory & run `docker-compose up -d`. If you are using something else like XAMPP just make sure you have Web Server (Apache), PHP & MySQL running.
-   * Please note that **PHP 8** is required if you want to use the skeleton that I am providing. You will need to adjust the code to make it work for lower PHP versions.
-3. Create a `.env` file by copying variables from `.env.example`. Fill in those values in `.env` file.
-4. Make sure that whatever database name you enter actually exists, if not, create that database.
-5. Confirm that once you open your `http://localhost:8000` it loads the home page.
-6. Create a new route & controller that will let you upload the transactions CSV file. The UI is not important, so you don't even need any CSS. If you want you can use `HomeController` and simply add a new method and route for it or create a new controller entirely.
-7. Your controller should accept the uploaded file, read it line by line & save the data into the **transactions** table. You can download the sample transactions file to upload [here](./transactions_sample.csv)
-   * Create the **transactions** table with appropriate columns to store the data
-   * Create a model within the **Models** directory to actually process the file & save data into the database
-   * First column is the date of the transaction
-   * Second column is the check # which is optional & is not always provided
-   * The third column is transaction description
-   * The fourth column is the amount (negative number indicates it's an expense, positive number indicates it's an income), it's up to you how you want to store it
-8. The view file is provided for you under `views/transactions.php` you just need to render this from your controller & pass down the necessary data to display transactions.
-   * The date of the transaction should be in this format "Jan 4, 2021"
-   * Show income amounts in green color & show expense amounts in red
-9. Submit the PR with your changes, I will review & provide feedback, if you get stuck or have any questions let me know.
-10. **Bonus:** Allow multiple file uploads so that more than one CSV file can be uploaded at the same time.
+Feel free to explore the code, and if you have any questions or feedback, don't hesitate to reach
+out to karocreativedesigns@gmail.com.
