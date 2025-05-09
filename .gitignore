@@ -1,0 +1,49 @@
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Composer dependencies
+/vendor/
+/composer.lock
+
+# Node modules
+/node_modules/
+/package-lock.json
+
+# Cache files
+/cache/
+/*.cache
+
+# Logs
+*.log
+logs/
+
+# IDE-specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Environment and config files
+.env
+*.env.local
+*.env.production
+.env.testing
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+
+# PHPUnit
+phpunit.xml
+phpunit.xml.dist
+
+# Generated files
+*.bak
+*.swp
+
+# Mac system metadata
+.DS_Store
+.AppleDouble
+.LSOverride
