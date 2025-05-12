@@ -1,11 +1,12 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 use App\App;
 use App\Config;
-use App\Controllers\HomeController;
 use App\Router;
+use App\Controllers\HomeController;
+use App\Controllers\UploadController;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -19,6 +20,8 @@ $router = new Router();
 
 $router
     ->get('/', [HomeController::class, 'index']);
+$router
+    ->post('/upload', [UploadController::class, 'store']);
 
 (new App(
     $router,
