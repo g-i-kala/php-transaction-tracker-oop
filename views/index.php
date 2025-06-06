@@ -13,7 +13,7 @@
     Home Page
     <form action="/upload" method="POST" enctype="multipart/form-data">
         <label for="myFile">Choose file</label>
-        <input type="file" name="myFile" accept=".csv" multiple />
+        <input type="file" name="myFile" accept=".csv" multiple/>
         <button> Upload </button>
     </form>
 
