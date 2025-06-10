@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App;
 
@@ -23,6 +23,7 @@ class App
     public function run()
     {
         try {
+            DatabaseInitializer::createTable(self::$db);
             echo $this->router->resolve($this->request['uri'], strtolower($this->request['method']));
         } catch (RouteNotFoundException) {
             http_response_code(404);

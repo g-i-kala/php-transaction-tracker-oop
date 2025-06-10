@@ -14,7 +14,11 @@ class UploadValidator
         protected $maxSize = self::DEFAULT_MAX_SIEZE,
         protected array $allowedTypes = []
     ) {
-        //
+        $this->allowedTypes = [
+          'text/plain' => 'csv',
+          'application/csv' => 'csv',
+          'application/vnd.ms-excel/plain' => 'csv',
+        ];
     }
 
     public function validate(): bool
