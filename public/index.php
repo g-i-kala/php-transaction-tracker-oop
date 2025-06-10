@@ -6,9 +6,11 @@ use App\App;
 use App\Config;
 use App\Router;
 use App\Controllers\HomeController;
-use App\Controllers\UploadController;
+use App\Controllers\TransactionsController;
+use App\DatabaseInitializer;
 
 require_once __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . "/../app/helpers.php";
 
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
@@ -21,7 +23,9 @@ $router = new Router();
 $router
     ->get('/', [HomeController::class, 'index']);
 $router
-    ->post('/upload', [UploadController::class, 'store']);
+->get('/transactions', [TransactionsController::class, 'index']);
+$router
+    ->post('/transactions', [TransactionsController::class, 'store']);
 
 (new App(
     $router,
