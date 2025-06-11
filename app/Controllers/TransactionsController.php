@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Exceptions\FileUploadException;
 use App\Exceptions\UploadValidationException;
 use App\View;
 use App\FileUploader;
@@ -34,24 +35,17 @@ class TransactionsController
         try {
             $uploadForm = UploadForm::validate($_FILES["myFile"] ?? null);
             $file = $uploadForm->file();
+
+            $uploader = new FileUploader($file['tmp_name']);
+            $path = $uploader->moveTo(STORAGE_PATH . "/uploads");
+
+
         } catch (UploadValidationException $e) {
             return View::make('index', ['errors' => $e->getErrors()]);
+        } catch (FileUploadException $e) {
+            return View::make('index', ['errors' => $e->getMessage()]);
         };
 
-        // $uploadValidator = new UploadValidator($file);
-
-        // if (!$uploadValidator->validate()) {
-        //     $errors = $uploadValidator->getErrors();
-        //     return View::make('index', ['errors' => $errors]);
-        // }
-
-        $uploader = new FileUploader($file['tmp_name']);
-        $path = $uploader->moveTo(STORAGE_PATH . "/uploads");
-
-        if (!$path) {
-            $errors = $uploader->getErrors();
-            return View::make('index', ['errors' => $errors]);
-        }
 
         $transactions = new Transaction();
         $data = $transactions->importTransactions($path);
