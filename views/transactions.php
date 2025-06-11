@@ -58,17 +58,17 @@
         <tfoot>
             <tr>
                 <th colspan="3">Total Income:</th>
-                <td><?= htmlspecialchars($balance['income']) ?>
+                <td><?= htmlspecialchars($balance['income'] ?? '') ?>
                 </td>
             </tr>
             <tr>
                 <th colspan="3">Total Expense:</th>
-                <td><?= htmlspecialchars($balance['expense']) ?>
+                <td><?= htmlspecialchars($balance['expense'] ?? '') ?>
                 </td>
             </tr>
             <tr>
                 <th colspan="3">Net Total:</th>
-                <td><?= htmlspecialchars($balance['total']) ?>
+                <td><?= htmlspecialchars($balance['total'] ?? '') ?>
                 </td>
             </tr>
         </tfoot>
