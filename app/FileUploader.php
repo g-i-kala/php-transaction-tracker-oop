@@ -4,29 +4,24 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Exceptions\FileUploadException;
+
 class FileUploader
 {
-    protected $errors = [];
-
     public function __construct(protected $file)
     {
 
     }
     public function moveTo($storagePath)
     {
-        $filename = basename($this->file);
+        $filename = pathinfo($this->file, PATHINFO_FILENAME);
         $targetPath = rtrim($storagePath, '/') . '/' . $filename . '.csv';
 
         if (!move_uploaded_file($this->file, $targetPath)) {
-            $this->errors['upload_error'] = 'Failed to move uploaded file.';
-            throw new \Exception("Failed to move uploaded file.");
+            throw new FileUploadException();
         }
 
         return $targetPath;
     }
 
-    public function getErrors()
-    {
-        return $this->errors;
-    }
 }
