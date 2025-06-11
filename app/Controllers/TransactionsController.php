@@ -30,10 +30,10 @@ class TransactionsController
 
         $file = $_FILES["myFile"] ?? null;
 
-        $validator = new UploadValidator($file);
+        $uploadValidator = new UploadValidator($file);
 
-        if (!$validator->validate()) {
-            $errors = $validator->getErrors();
+        if (!$uploadValidator->validate()) {
+            $errors = $uploadValidator->getErrors();
             return View::make('index', ['errors' => $errors]);
         }
 
