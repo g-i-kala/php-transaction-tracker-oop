@@ -14,7 +14,7 @@
     <h1 class="text-lg font-bold my-4">Home Page</h1>
     <form action="/transactions" method="POST" enctype="multipart/form-data">
         <label for="myFile">Choose file</label>
-        <input type="file" name="myFile" accept=".csv" multiple class="border border-black/20 rounded p-1"/>
+        <input type="file" name="myFile" accept=".csv" multiple class="border border-black/20 rounded p-1" required/>
         <button class="border border-black rounded px-2 py-1 bg-white text-black hover:invert"> Upload </button>
     </form>
 
