@@ -13,12 +13,20 @@ class UploadValidator
 
     public static function checkFileSize($file, $maxSize = (1024 * 1024 * 3))
     {
+        if (empty($file['tmp_name']) || !file_exists($file['tmp_name'])) {
+            return false;
+        };
+
         $fileSize = filesize($file['tmp_name']);
         return $fileSize > 0 && $fileSize <= $maxSize;
     }
 
     public static function checkFileType($file, array $allowedTypes = [])
     {
+        if (empty($file['tmp_name']) || !file_exists($file['tmp_name'])) {
+            return false;
+        };
+
         $fileinfo = finfo_open(FILEINFO_MIME_TYPE);
         $filetype = finfo_file($fileinfo, $file['tmp_name']);
         finfo_close($fileinfo);

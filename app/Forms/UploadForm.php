@@ -15,6 +15,7 @@ class UploadForm
     {
         if (!UploadValidator::checkIfExists($file)) {
             $this->errors['file'] = "Pick a file.";
+            return;
         };
 
         if (!UploadValidator::checkFileSize($file)) {
