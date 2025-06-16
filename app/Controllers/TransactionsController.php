@@ -39,7 +39,6 @@ class TransactionsController
             $uploader = new FileUploader($file['tmp_name']);
             $path = $uploader->moveTo(STORAGE_PATH . "/uploads");
 
-
         } catch (UploadValidationException $e) {
             return View::make('index', ['errors' => $e->getErrors()]);
         } catch (FileUploadException $e) {
